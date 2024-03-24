@@ -3,11 +3,13 @@
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import React from "react";
+import Logo from "./logo";
+import { Button } from "@/components/ui/button";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
-    
+
   const scrolled = useScrollTop();
 
   return (
@@ -17,7 +19,10 @@ const Navbar = (props: Props) => {
         scrolled && "border-b shadow-sm"
       )}
     >
-      Navbar
+      <Logo />
+      <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+        <Button variant="zerosicx"> Login </Button>
+      </div>
     </div>
   );
 };
