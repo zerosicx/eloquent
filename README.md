@@ -5,9 +5,9 @@ By Hannah Carino
 A minimalist note-taking application built with NextJS and React. My goal is to learn about more front-end technlogies in depth while pursuing my own passion with aesthetic productivity applications.
 
 ## Roadmap
-1. UI for landing page - React and NextJS
-2. Introducing a database
-3. Register and login functionality
+1. UI for landing page - React and NextJS  ✅
+2. Introducing a database  ✅
+3. Register and login functionality  ✅
 4. Sidebar
 5. User dropdown & details
 6. Schema and API for text editing
