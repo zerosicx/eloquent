@@ -38,7 +38,10 @@ const Heading = () => {
       {!isAuthenticated && !isLoading && (
         <>
           <SignInButton mode="modal">
-            <Button variant="zerosicx"> Get Eloquent </Button>
+            <Button variant="zerosicx">
+              Get Eloquent
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Button>
           </SignInButton>
         </>
       )}
