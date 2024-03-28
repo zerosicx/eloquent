@@ -4,6 +4,10 @@ By Hannah Carino
 ## About
 A minimalist note-taking application built with NextJS and React. My goal is to learn about more front-end technlogies in depth while pursuing my own passion with aesthetic productivity applications.
 
+### Development
+- `npx convex dev` for the backend
+- `npm run dev` for the front-end development environment
+
 ## Roadmap
 1. UI for landing page - React and NextJS  ✅
 2. Introducing a database  ✅
