@@ -3,7 +3,7 @@ import { SignOutButton, useUser } from '@clerk/clerk-react';
 import {
     Avatar,
     AvatarImage
-} from '../../../components/ui/avatar'
+} from '../../components/ui/avatar'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -11,10 +11,10 @@ import {
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger
-} from '../../../components/ui/dropdown-menu'
+} from '../../components/ui/dropdown-menu'
 import { ChevronsLeftRight } from 'lucide-react';
 
-export const UserItem = () => {
+export const UserProfile = () => {
     const { user } = useUser();
     return (
         <DropdownMenu>
