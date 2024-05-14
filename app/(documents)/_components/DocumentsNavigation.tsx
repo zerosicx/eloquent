@@ -5,7 +5,7 @@ import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { UserItem } from "./user-item";
+import { UserItem } from "./UserItem";
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
 
