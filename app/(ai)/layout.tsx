@@ -3,7 +3,6 @@
 import { Spinner } from "@/components/spinner";
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
-import { DocumentsNavigation } from "./_components/DocumentsNavigation";
 import SideBar from "../_components/SideBar";
 
 // We need to use the `use client` key words when we use hooks. This allows us to hook out of server components.
@@ -34,7 +33,6 @@ const MainLayout = ({
     return ( 
         <div className="h-full flex dark:bg-[#1f1f1f]">
             <SideBar />
-            <DocumentsNavigation />
             <main className="flex-1 h-full overflow-y-auto">
                 {children}
             </main>

@@ -32,7 +32,7 @@ const DocumentsPage = (props: Props) => {
         alt="empty"
         // className="dark:hidden"
       />
-      {/* For when I have drawn the necessary iamage assets
+      {/* For when I have drawn the necessary image assets
       
       <Image 
         src="/empty.svg"

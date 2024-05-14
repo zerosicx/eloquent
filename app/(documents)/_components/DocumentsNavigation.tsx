@@ -9,7 +9,7 @@ import { UserItem } from "./user-item";
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
 
-export const Navigation = () => {
+export const DocumentsNavigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const documents = useQuery(api.documents.get);
