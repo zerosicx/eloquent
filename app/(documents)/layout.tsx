@@ -4,6 +4,7 @@ import { Spinner } from "@/components/spinner";
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import { Navigation } from "./_components/navigation";
+import SideBar from "../_components/SideBar";
 
 // We need to use the `use client` key words when we use hooks. This allows us to hook out of server components.
 // Serverside rendering is generally preferred. Working with a real-time database shines when using client components.
@@ -32,6 +33,7 @@ const MainLayout = ({
 
     return ( 
         <div className="h-full flex dark:bg-[#1f1f1f]">
+            <SideBar />
             <Navigation />
             <main className="flex-1 h-full overflow-y-auto">
                 {children}
