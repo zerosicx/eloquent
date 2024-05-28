@@ -3,7 +3,7 @@
 import { SideBar } from "@/app/_components/SideBar";
 import { api } from "@/convex/_generated/api";
 import { useMutation, useQuery } from "convex/react";
-import { PlusCircle, Search } from "lucide-react";
+import { File, PlusCircle, Search, Settings } from "lucide-react";
 import { toast } from "sonner";
 import DocNavItem from "./DocNavItem";
 
@@ -26,6 +26,7 @@ export const DocumentNavigation = () => {
   return (
     <>
       <SideBar>
+        <DocNavItem onClick={() => {}} label="Settings" icon={Settings} />
         <DocNavItem
           onClick={() => {
             handleNewPageClick();
@@ -36,7 +37,16 @@ export const DocumentNavigation = () => {
         <DocNavItem onClick={() => {}} label="Search" icon={Search} isSearch />
         <div className="mt-4">
           {documents?.map((document) => {
-            return <p key={document._id}> {document.title}</p>;
+            // return <p key={document._id}> {document.title}</p>;
+            return (
+              <DocNavItem
+                documentIcon="📄"
+                icon={File}
+                key={document._id}
+                label={document.title}
+                onClick={() => {}}
+              />
+            );
           })}
         </div>
       </SideBar>
