@@ -1,6 +1,6 @@
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import ModalProvider from "@/components/providers/modal-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import SearchCommand from "@/components/search-command";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
@@ -47,7 +47,7 @@ export default function RootLayout({
             storageKey="eloquent-theme-2"
           >
             <Toaster position="bottom-center" />
-            <SearchCommand />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/popover";
 import { api } from "@/convex/_generated/api";
 import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 import { useMutation } from "convex/react";
 import { Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { toast } from "sonner";
@@ -18,6 +19,7 @@ import TrashBox from "./TrashBox";
 
 export const DocumentNavigation = () => {
   const search = useSearch();
+  const settings = useSettings();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
 
@@ -36,7 +38,11 @@ export const DocumentNavigation = () => {
   return (
     <>
       <SideBar>
-        <DocNavItem onClick={() => {}} label="Settings" icon={Settings} />
+        <DocNavItem
+          onClick={settings.onOpen}
+          label="Settings"
+          icon={Settings}
+        />
         <DocNavItem
           onClick={() => {
             handleNewPageClick();

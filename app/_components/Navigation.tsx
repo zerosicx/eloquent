@@ -6,7 +6,7 @@ type Props = {};
 
 const Navigation = (props: Props) => {
   return (
-    <aside className="flex flex-col h-full bg-neutral-50 w-[60px] min-w-[60px] align-middle justify-center gap-5">
+    <aside className="flex flex-col h-full bg-neutral-50 w-[60px] min-w-[60px] align-middle justify-center gap-5 dark:bg-secondary">
       <div className="max-w-[60px] relative bottom-10">
         <Link href="/documents">
           <Button variant="ghost" direction="vertical" size="custom">
