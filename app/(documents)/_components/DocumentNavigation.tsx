@@ -7,6 +7,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { api } from "@/convex/_generated/api";
+import { useSearch } from "@/hooks/use-search";
 import { useMutation } from "convex/react";
 import { Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { toast } from "sonner";
@@ -16,6 +17,7 @@ import DocumentList from "./DocumentList";
 import TrashBox from "./TrashBox";
 
 export const DocumentNavigation = () => {
+  const search = useSearch();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const create = useMutation(api.documents.create);
 
@@ -42,7 +44,12 @@ export const DocumentNavigation = () => {
           label="New Page"
           icon={PlusCircle}
         />
-        <DocNavItem onClick={() => {}} label="Search" icon={Search} isSearch />
+        <DocNavItem
+          onClick={search.onOpen}
+          label="Search"
+          icon={Search}
+          isSearch
+        />
         <div className="mt-4">
           <DocumentList />
           <DocNavItem
