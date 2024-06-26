@@ -60,8 +60,8 @@ const DocNavItem = ({
     const promise = archive({ id });
     toast.promise(promise, {
       loading: "Moving to trash...",
-      success: "Note has been archived",
-      error: "Failed to archive note 😓",
+      success: "Document has been archived",
+      error: "Failed to archive document 😓",
     });
   };
 
