@@ -36,7 +36,7 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
 
   // TODO: Implement this route
   const onRedirect = (documentId: string) => {
-    router.push(`documents/${documentId}`);
+    router.push(`/documents/${documentId}`);
   };
 
   if (documents === undefined) {

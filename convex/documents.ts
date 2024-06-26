@@ -241,3 +241,76 @@ export const getSearch = query({
     return documents;
   },
 });
+
+export const getById = query({
+  args: { documentId: v.id("documents") },
+  handler: async (ctx, args) => {
+    // Using identity, but not doing auth check because later on, we'll allow publishing of websites :))
+    const identity = await ctx.auth.getUserIdentity();
+
+    const document = await ctx.db.get(args.documentId);
+
+    if (!document) {
+      throw new Error("Not found");
+    }
+
+    // Display the document to any user if it is published and not archived
+    if (document.isPublished && !document.isArchived) {
+      return document;
+    }
+
+    // Otherwise, the current user needs to be authenticated to access it.
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    const userId = identity.subject;
+
+    // Logged in but the document's owner is not the same person as the one logged in
+    if (document.userId !== userId) {
+      throw new Error("Not authorised to view this document.");
+    }
+
+    return document;
+  },
+});
+
+export const update = mutation({
+  args: {
+    id: v.id("documents"),
+    title: v.optional(v.string()),
+    content: v.optional(v.string()),
+    coverImage: v.optional(v.string()),
+    icon: v.optional(v.string()),
+    isPublished: v.optional(v.boolean()),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+    const userId = identity.subject;
+
+    // Preparing data
+    // Destructuring the data by extracting ID, and keeping everything else and naming it "rest"
+    // This way, we don't mutate the ID.
+    const { id, ...rest } = args;
+
+    const existingDocument = await ctx.db.get(args.id);
+
+    if (!existingDocument) {
+      throw new Error("Not found");
+    }
+
+    if (existingDocument.userId != userId) {
+      throw new Error("Not authorised");
+    }
+
+    const document = await ctx.db.patch(args.id, {
+      ...rest,
+    });
+
+    return document;
+  },
+});
